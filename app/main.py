@@ -6,8 +6,6 @@ from .routers import post, user, auth, vote
 from .config import settings
 
 
-print(settings.database_password)
-
 # models.Base.metadata.create_all(bind=engine) create all tables. alembic handles this now, no longer needed
 
 origins = ['https://www.google.com']
