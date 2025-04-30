@@ -1,0 +1,25 @@
+services: 
+  api:
+    build: .
+    depends_on:
+      - postgres
+    ports: 
+      - 8000:8000
+    volumes:
+      - type: bind
+        source: .
+        target: /usr/src/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    env_file:
+      - .env
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=122308Ndl?
+      - POSTGRES_DB=fastapi
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+
+volumes:
+  postgres-db: 
